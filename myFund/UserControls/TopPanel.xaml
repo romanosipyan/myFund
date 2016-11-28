@@ -7,6 +7,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:vm="clr-namespace:myFund.Models"
              xmlns:r="clr-namespace:myFund.ValidationRules"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:b="clr-namespace:myFund.Behaviors"
              xmlns:app="clr-namespace:myFund">
     <Grid VerticalAlignment="Top">
         <Expander Margin="0,-40,0,0" Panel.ZIndex="0" Background="Transparent" Grid.Row="2" ExpandDirection="Down" FlowDirection="LeftToRight" FontFamily="Roboto">
@@ -44,6 +46,9 @@
                                     </TextBox>
                                     <TextBox Margin="16 4 16 0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                              Text="{Binding Quantity, Mode=TwoWay}">
+                                        <i:Interaction.Behaviors>
+                                            <b:TextBoxKeyBehavior />
+                                        </i:Interaction.Behaviors>
                                         <materialDesign:HintAssist.Hint>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock>Quantity</TextBlock>
@@ -52,7 +57,7 @@
                                     </TextBox>
                                     <Separator Style="{StaticResource MaterialDesignLightSeparator}"/>
                                     <StackPanel Margin="8 0 8 8" Orientation="Horizontal" HorizontalAlignment="Right">
-                                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 0 0"
+                                        <Button HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="60" Padding="2 0 0 0"
                                             materialDesign:RippleAssist.IsCentered="True" >
                                             <Button.Command>
                                                 <Binding Path="DataContext.AddStockCommand"
@@ -63,7 +68,10 @@
                                                 <Binding Path=".">
                                                 </Binding>
                                             </Button.CommandParameter>
-                                            <materialDesign:PackIcon Kind="Check" />
+                                            <Grid>
+                                                <TextBlock Margin="0 0 30 0" Text="Add"></TextBlock>
+                                                <materialDesign:PackIcon Margin="30 0 5 0" Kind="PlusCircle" />
+                                            </Grid>
                                         </Button>
                                     </StackPanel>
                                 </StackPanel>
