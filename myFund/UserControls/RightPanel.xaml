@@ -35,7 +35,7 @@
                         </StackPanel>
                         <StackPanel Margin="16 4 16 0" Orientation="Horizontal">
                             <Label>Total Stock Weight:</Label>
-                            <Label FontWeight="Bold" Content="{Binding BondTotals.TotalWeight, Mode=TwoWay, StringFormat=N2}"></Label>
+                            <Label FontWeight="Bold" Content="{Binding Path=BondTotals.TotalWeight, Mode=TwoWay, StringFormat=N2}"></Label>
                         </StackPanel>
                         <StackPanel Margin="16 4 16 20" Orientation="Horizontal">
                             <Label>Total Market Value:</Label>

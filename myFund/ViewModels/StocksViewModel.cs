@@ -126,6 +126,10 @@ namespace myFund.ViewModels
             this.BondTotals.TotalWeight = bondStocks.Sum(b => b.Weight);
             this.EquityTotals.TotalWeight = equityStocks.Sum(b => b.Weight);
             this.AllTotals.TotalWeight = allStocks.Sum(b => b.Weight);
+
+            OnPropertyChanged("BondTotals");
+            OnPropertyChanged("EquityTotals");
+            OnPropertyChanged("AllTotals");
         }
 
         public void NotifyAddCommandChange()
